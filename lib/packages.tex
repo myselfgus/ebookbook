@@ -1,3 +1,4 @@
+% Pacotes essenciais para o Tratado Lógico-Afetivo
 \usepackage{comment}
 \usepackage{etoolbox}
 \usepackage{fancyvrb}
@@ -7,7 +8,61 @@
 \usepackage{xspace}
 \usepackage{xcolor}
 
-% This is for multilingual work. Would be nice to support Chinese and Thai.
-\usepackage[T2A]{fontenc}
+% Codificação e idioma
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[greek,russian,english]{babel}
+\usepackage[brazil,english]{babel}
+
+% Pacotes matemáticos
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+% TikZ para diagramas
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing,patterns,shadows,backgrounds,fit,mindmap,trees,arrows.meta}
+
+% Para diagramas de fluxo e gráficos
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Layout e formatação
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{float}
+
+% Citações e epígrafes
+\usepackage{epigraph}
+\usepackage{csquotes}
+
+% Tabelas
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+
+% Índice e glossário
+\usepackage{imakeidx}
+\makeindex[intoc]
+
+% Para frames e caixas destacadas
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% Símbolos especiais
+\usepackage{pifont}
+
+% Configuração de hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!80!black,
+    pdftitle={Tratado Lógico-Afetivo da Linguagem e da Mente Humana},
+    pdfauthor={Gustavo Mendes e Silva, M.D.}
+}

@@ -1,13 +1,9 @@
-% This file is for commands / macros / functions.
+% Comandos e ambientes personalizados para o Tratado Lógico-Afetivo
 
-% That at least was the original intention. As you can see from the comments, some of the commands
-% that work for TeX and pdf output are innefective when applied to HTML and eBooks!
-
-% These are useful because HTML output corrupts the result of the \latex command.
+% Comandos básicos herdados
 \newcommand{\latex}{LaTeX\xspace}
 \newcommand{\tex}{TeX\xspace}
 
-% Makes extra space in HTML but not in PDF output.
 \def\htbr{\ifdefined\HCode{\HCode{<br/><br/>}}\fi}
 
 \newcommand\nextpage[1][]{
@@ -18,12 +14,174 @@
 \fi
 }
 
-% Makes small typewriter text, comparable to other font sizes.
 \def\smalltt#1{\texttt{\small #1}}
-
-% Makes small verbatim inline typewriter text, comparable to other font sizes.
-% Use as \sverb|My verbatim text|
 \def\sverb{\Verb[fontsize=\small]}
-
-% Makes small URL text, comparable to other font sizes.
 \def\surl#1{{\small{\url{#1}}}}
+
+% ============================================
+% AMBIENTES PARA O TRATADO
+% ============================================
+
+% Ambiente para Teses
+\newtcolorbox{tese}[1][]{
+    enhanced,
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title={\textsc{Tese}},
+    #1
+}
+
+% Ambiente para Hipóteses
+\newtcolorbox{hipotese}[1][]{
+    enhanced,
+    colback=green!5!white,
+    colframe=green!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Hipótese}},
+    #1
+}
+
+% Ambiente para Aforismos
+\newtcolorbox{aforismo}[1][]{
+    enhanced,
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries\itshape,
+    title={},
+    before upper={\itshape``},
+    after upper={''},
+    #1
+}
+
+% Ambiente para Referências Teóricas
+\newtcolorbox{referencia}[1][]{
+    enhanced,
+    colback=orange!5!white,
+    colframe=orange!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Referência Teórica}},
+    #1
+}
+
+% Ambiente para Provas
+\newtcolorbox{prova}[1][]{
+    enhanced,
+    colback=gray!5!white,
+    colframe=gray!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Prova por Contradição}},
+    #1
+}
+
+% Ambiente para Axiomas
+\newtcolorbox{axioma}[1][]{
+    enhanced,
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title={\textsc{Axioma}},
+    #1
+}
+
+% Ambiente para Postulados
+\newtcolorbox{postulado}[1][]{
+    enhanced,
+    colback=cyan!5!white,
+    colframe=cyan!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Postulado}},
+    #1
+}
+
+% Ambiente para Teoremas
+\newtcolorbox{teorema}[1][]{
+    enhanced,
+    colback=yellow!5!white,
+    colframe=yellow!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Teorema}},
+    #1
+}
+
+% Ambiente para Síntese
+\newtcolorbox{sintese}[1][]{
+    enhanced,
+    colback=teal!5!white,
+    colframe=teal!60!black,
+    fonttitle=\bfseries,
+    title={\textsc{Síntese}},
+    breakable,
+    #1
+}
+
+% Ambiente para Epígrafes customizadas
+\newcommand{\epigrafe}[2]{%
+    \begin{flushright}
+    \begin{minipage}{0.7\textwidth}
+    \itshape #1
+    \begin{flushright}
+    --- #2
+    \end{flushright}
+    \end{minipage}
+    \end{flushright}
+    \vspace{1em}
+}
+
+% Ambiente para diagramas
+\newtcolorbox{diagrama}[1][]{
+    enhanced,
+    colback=white,
+    colframe=black!50,
+    fonttitle=\bfseries,
+    title={\textsc{Diagrama}},
+    boxrule=0.5pt,
+    #1
+}
+
+% ============================================
+% ESTILOS TikZ PARA DIAGRAMAS
+% ============================================
+
+% Estilos para nós
+\tikzstyle{conceito} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
+\tikzstyle{processo} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!20]
+\tikzstyle{circulo} = [circle, minimum size=2cm, text centered, draw=black, fill=green!20]
+\tikzstyle{triangulo} = [regular polygon, regular polygon sides=3, minimum size=2cm, text centered, draw=black, fill=red!20]
+
+% Estilos para setas
+\tikzstyle{seta} = [thick,->,>=stealth]
+\tikzstyle{setadupla} = [thick,<->,>=stealth]
+
+% ============================================
+% COMANDOS MATEMÁTICOS
+% ============================================
+
+% Espaço mental
+\newcommand{\espacomental}{\ensuremath{\mathcal{M}}\xspace}
+\newcommand{\Rn}[1]{\ensuremath{\mathbb{R}^{#1}}\xspace}
+
+% Operadores
+\DeclareMathOperator{\cognicao}{C}
+\DeclareMathOperator{\emocao}{E}
+\DeclareMathOperator{\linguagem}{L}
+
+% Vetores
+\newcommand{\vetor}[1]{\ensuremath{\vec{#1}}}
+\newcommand{\vetorneg}[1]{\ensuremath{\boldsymbol{#1}}}
+
+% ============================================
+% DEDICATÓRIA
+% ============================================
+
+\newenvironment{dedicatoria}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \vspace*{\stretch{1}}
+    \hfill\begin{minipage}[t]{0.66\textwidth}
+    \raggedleft\itshape
+}{%
+    \end{minipage}
+    \vspace*{\stretch{3}}
+    \cleardoublepage
+}
