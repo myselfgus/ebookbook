@@ -1,0 +1,68 @@
+%% Capa do Tratado Lógico-Afetivo
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % Fundo gradiente
+    \fill[top color=blue!20, bottom color=purple!30]
+        (current page.south west) rectangle (current page.north east);
+
+    % Padrão decorativo - círculos interconectados representando mente
+    \foreach \i in {1,...,12} {
+        \pgfmathsetmacro{\x}{rand*8}
+        \pgfmathsetmacro{\y}{rand*12}
+        \pgfmathsetmacro{\r}{0.3+rand*0.5}
+        \fill[white, opacity=0.1] (\x,-\y+6) circle (\r);
+    }
+
+    % Diagrama central - Triângulo Cognição-Emoção-Linguagem
+    \begin{scope}[shift={(current page.center)}, yshift=-2cm]
+        % Círculo externo
+        \draw[white, ultra thick, opacity=0.3] (0,0) circle (4cm);
+
+        % Triângulo central
+        \coordinate (C) at (90:2.5);   % Cognição
+        \coordinate (E) at (210:2.5);  % Emoção
+        \coordinate (L) at (330:2.5);  % Linguagem
+
+        % Linhas do triângulo
+        \draw[white, thick, opacity=0.5] (C) -- (E) -- (L) -- cycle;
+
+        % Setas bidirecionais
+        \draw[white, thick, <->, opacity=0.6] (C) -- (E);
+        \draw[white, thick, <->, opacity=0.6] (E) -- (L);
+        \draw[white, thick, <->, opacity=0.6] (L) -- (C);
+
+        % Nós
+        \fill[blue!60!white] (C) circle (0.4);
+        \fill[red!60!white] (E) circle (0.4);
+        \fill[green!60!white] (L) circle (0.4);
+
+        % Centro - Mente
+        \fill[yellow!80!orange, opacity=0.8] (0,0) circle (0.6);
+        \node[white, font=\small\bfseries] at (0,0) {$\mathcal{M}$};
+
+        % Labels
+        \node[white, font=\footnotesize] at (90:3.2) {Cognição};
+        \node[white, font=\footnotesize] at (210:3.2) {Emoção};
+        \node[white, font=\footnotesize] at (330:3.2) {Linguagem};
+    \end{scope}
+\end{tikzpicture}
+
+\vspace{3cm}
+
+\begin{center}
+    {\color{blue!80!black}\bfseries\Huge Tratado Lógico-Afetivo}\\[0.5cm]
+    {\color{blue!80!black}\bfseries\Huge da Linguagem e da Mente Humana}\\[1cm]
+    {\color{purple!70!black}\bfseries\LARGE Entre o Nome e o Ser}\\[2cm]
+    {\color{black}\bfseries\Large Gustavo Mendes e Silva, M.D.}\\[0.5cm]
+    {\color{gray}\normalsize Médico Psiquiatra}
+\end{center}
+
+\vfill
+
+\begin{center}
+    {\color{gray}\small 2024}
+\end{center}
+
+\newpage

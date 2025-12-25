@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tratado Lógico-Afetivo da Linguagem e da Mente Humana
+% Entre o Nome e o Ser
+% Gustavo Mendes e Silva, M.D.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside,bibliography=totocnumbered]{scrbook}
+
+\input{lib/packages}
+\input{lib/commands}
+
+% Configurações de página
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2.5cm
+}
+
+% Evita páginas em branco extras
+\ifdefined\HCode{\KOMAoptions{twoside=false}} \fi
+
+\begin{document}
+
+% ============================================
+% CAPA
+% ============================================
+\input{chapters/capa}
+
+% ============================================
+% DEDICATÓRIA
+% ============================================
+\input{chapters/dedicatoria}
+
+% ============================================
+% SUMÁRIO
+% ============================================
+\tableofcontents
+\nextpage
+
+% ============================================
+% PREFÁCIO
+% ============================================
+\input{chapters/prefacio}
+
+% ============================================
+% INTRODUÇÃO
+% ============================================
+\input{chapters/introducao}
+
+% ============================================
+% PARTE I: O TRATADO
+% ============================================
+\part{Tratado Lógico-Afetivo da Linguagem e da Mente Humana}
+
+\input{chapters/secao01}
+\input{chapters/secao02}
+\input{chapters/secao03}
+\input{chapters/secao04}
+\input{chapters/secao05}
+\input{chapters/secao06}
+\input{chapters/secao07}
+\input{chapters/secao08}
+\input{chapters/secao09}
+\input{chapters/secao10}
+
+% ============================================
+% CONCLUSÃO E AXIOMÁTICA
+% ============================================
+\input{chapters/conclusao}
+
+% ============================================
+% PARTE II: ANÁLISE SISTÊMICA
+% ============================================
+\part{Análise Sistêmica da Linguagem na Psiquiatria}
+
+\input{chapters/analise_sistemica}
+
+% ============================================
+% PARTE III: ESPAÇO MENTAL
+% ============================================
+\part{Espaço Mental $\mathcal{M}$: O Campo Vetorial da Mente}
+
+\input{chapters/espaco_mental}
+
+% ============================================
+% MATERIAL SUPLEMENTAR
+% ============================================
+\backmatter
+
+% Sobre o Autor
+\input{chapters/sobre_autor}
+
+% Glossário
+\input{chapters/glossario}
+
+% Referências Bibliográficas
+\bibliographystyle{apalike}
+\bibliography{bibliography}
+
+% Índice Remissivo
+\printindex
+
+\end{document}
